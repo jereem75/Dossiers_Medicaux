@@ -1,0 +1,47 @@
+<!doctype html>
+<title>Accueil</title>
+
+
+<p> <a href={{url_for('deconnexion')}}>Se déconnecter</a> 
+    <br>
+    <a href={{url_for('lstpatients')}}>Retour vers la liste des patients </a>
+    <br>
+    <b>Information sur le patient {{info[0][1]}} {{info[0][2]}}</b>
+    <p>
+        {% for val in info%}
+            <ul>
+                <li>Numero de securite social: {{val[0]}} </li>
+                <li>Nom: {{val[1]}}</li>
+                <li>Prenom: {{val[2]}}</li>
+                <li>Adresse: {{val[3]}}</li>
+                <li>Numero professionnel du medecin traitant: {{val[4]}}</li></ul>
+
+        {% endfor %}
+    </p>
+    <a href={{url_for('modifier', numsecu=info[0][0])}}> Modifier les informations personnellles du patient {{info[0][1]}} {{info[0][2]}}</a>
+    <br>
+    <a href={{url_for('add', numsecu=info[0][0])}}>Ajouter une intervention</a>
+
+<br>
+Liste des interventions que le patient a subi:
+{% for val in intervention%}
+<ul>
+    <li>
+    <ul>
+        <li>Acte numero: {{val[0]}} ; Resume: {{val[1]}} ; Date de l'acte: {{val[2]}} ; Heure de l'acte:{{val[3]}} </li>
+        {% if val[4]!=None %}
+            <li>Fichier= Identifiant du fichier: {{val[4]}} ; Nom du fichier: {{val[5]}} ;
+                {% if val[5]!=None %}
+                <br>
+                     <img 
+                        src = "{{ url_for('static', filename = val[5]) }}" 
+                        width = 200 
+                        alt = "Photo du fichier"> 
+                {% endif %}
+            </li>
+        {% endif %}
+    </ul>
+    </li>
+</ul>
+{% endfor %}
+</p>

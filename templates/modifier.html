@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Ajouter une intervention</title>
+
+
+<p> <a href={{url_for('deconnexion')}}>Se déconnecter</a> 
+    <br>
+    <a href={{url_for('patient', numsecu=info[0][0])}}>Retour vers les informations du patient</a>
+</p>
+<form method="post" action="modif">
+    <b>Attention le numero de securite sociale n'est pas modifiable !!!</b>
+    <p> Nom de la personne(actuellement {{info[0][1]}}): <input type="text" name="nom" maxlength="30"></p>
+    <p> Prenom de la personne(actuellement {{info[0][2]}}) <input type="text" name="prenom" maxlength="30"></p>
+    <p> Adresse de la personne(actuellement {{info[0][3]}}) <input type="text" name="adresse"  maxlength="100"></p>
+    <p> Identifiant du medecin traitant de la personne(actuellement {{info[0][4]}}) <input type="text" name="idtraitant"  maxlength="100"></p>
+    <p><input type=submit value="Envoyer"></p>
+</form>
+    

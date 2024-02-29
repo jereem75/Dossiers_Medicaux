@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Ajouter une intervention</title>
+
+
+<p> <a href={{url_for('deconnexion')}}>Se déconnecter</a> 
+    <br>
+    <a href={{url_for('patient', numsecu=info[0][0])}}>Retour vers les informations du patient</a>
+</p>
+<form method="post" action="register">
+    <p> IdActe(exactement 6 caracteres): <input type="text" name="idacte" minlength="6" maxlength="6"></p>
+    <p> Date de l'acte: <input type="date" name="date"></p>
+    <p> Heure de l'acte: <input type="time" name="heure" step="1"></p>
+    <p>Resume de l'acte:<br><textarea id="resume" name="resume" rows="5" cols="33"></textarea></p>
+    <p><input type=submit value="Envoyer"></p>
+</form>
+    
